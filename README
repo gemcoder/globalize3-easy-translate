@@ -1,10 +1,12 @@
-This plugin adds a method to easily access translation attributes.  So if you have a translated attribute title in your post model,
-you can now access the english version of the attribute you would call en_title an your post object, here is an example:
+This plugin adds a method to easily access translation attributes.  So if you have a 
+translated attribute title in your post model,you can now access the english version 
+of the attribute you would call en_title an your post object, here is an example:
 post = Post.new(:title => "My title")
 post.en_title
 
-this will print out "My title".  To activate the easy access methods, just add the following line to your model and pass it
-the hash of short locale names you want to have easy access to:
+this will print out "My title".  To activate the easy access methods, just 
+add the following line to your model and pass it the hash of short locale 
+names you want to have easy access to:
 
 easy_translate :locales => ["en", "ar"]
 
