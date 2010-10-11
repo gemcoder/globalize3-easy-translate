@@ -10,4 +10,11 @@ names you want to have easy access to:
 
 easy_translate :locales => ["en", "ar"]
 
+or just:
+
+easy_translate 
+
+which will take by default the value of I18n.available_locales if :locales is empty or nil
+so you don't need to modify all the model files when you add new locale 
+
 
