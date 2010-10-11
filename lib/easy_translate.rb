@@ -14,11 +14,12 @@ module EasyTranslate
         options = {}
         end
       end
+
       
       options[:locales].each do |this_locale|
         translated_attribute_names.each do |this_method|
-          class_eval(%|def #{this_locale}_#{this_method}; globalize.fetch("#{this_locale}","#{this_method}"); end;|)
-          class_eval("def #{this_locale}_#{this_method}=(this_value);" + %|globalize.write("#{this_locale}","#{this_method}", this_value); end;|)
+          class_eval(%|def #{this_locale}_#{this_method}; read_attribute("#{this_method}","#{this_locale}"); end;|)
+          class_eval("def #{this_locale}_#{this_method}=(this_value);" + %|write_attribute("#{this_method}", this_value, "#{this_locale}"); end;|)
         end unless translated_attribute_names.empty?
       end if options[:locales]
     end
